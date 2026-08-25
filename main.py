@@ -1,9 +1,4 @@
-"""
-Punto de entrada principal del juego.
-"""
-
 from interfaz.interfaz import iniciar_interfaz
-
 
 def main():
     """
