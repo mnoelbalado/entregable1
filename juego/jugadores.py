@@ -120,76 +120,48 @@ def tirar_dado() -> int:
 
 
 # -------------------------
-# Competencia
-# -------------------------
-
-def resolver_competencia(
-    jugador1: Dict,
-    jugador2: Dict,
-    dado1: int,
-    dado2: int
-) -> Tuple[Dict, Dict]:
-    """
-    Resuelve una competencia a partir de los resultados
-    de los dados.
-
-    Función pura.
-    """
-
-    if dado1 > dado2:
-        return (
-            jugador1.copy(),
-            retroceder_jugador(jugador2, 2)
-        )
-
-    if dado2 > dado1:
-        return (
-            retroceder_jugador(jugador1, 2),
-            jugador2.copy()
-        )
-
-    return jugador1.copy(), jugador2.copy()
-
-
-# -------------------------
 # Comprensiones
 # -------------------------
 
-def obtener_jugadores_activos(
-    jugadores: List[Dict]
-) -> List[Dict]:
-    """
-    Obtiene jugadores que todavía no ganaron
-    usando comprensión de listas.
-    Función pura.
-    """
 
-    return [
-        jugador
-        for jugador in jugadores
-        if not jugador["ganador"]
-    ]
+# def obtener_jugadores_activos(
+#     jugadores: List[Dict]
+# ) -> List[Dict]:
+#     """
+#     Obtiene jugadores que todavía no ganaron
+#     usando comprensión de listas.
+#     Función pura.
+#     """
+
+#     return [
+#         jugador
+#         for jugador in jugadores
+#         if not jugador["ganador"]
+#     ]
 
 
-def obtener_posiciones_jugadores(
-    jugadores: List[Dict]
-) -> Dict[int, List[str]]:
-    """
-    Devuelve las posiciones ocupadas y los nombres
-    de los jugadores en cada una.
-    Función pura.
-    """
+# def obtener_posiciones_jugadores(
+#     jugadores: List[Dict]
+# ) -> Dict[int, List[str]]:
+#     """
+#     Devuelve las posiciones ocupadas y los nombres
+#     de los jugadores en cada una.
+#     Función pura.
+#     """
 
-    posiciones = {
-        jugador["posicion"]
-        for jugador in jugadores
-    }
+#     posiciones = {
+#         jugador["posicion"]
+#         for jugador in jugadores
+#     }
 
-    return {
-        posicion: [
-            jugador["nombre"]
-            for jugador in jugadores
-            if jugador["posicion"] == posicion
-        ]
-        for posicion in posiciones
-    }
+#     return {
+#         posicion: [
+#             jugador["nombre"]
+#             for jugador in jugadores
+#             if jugador["posicion"] == posicion
+#         ]
+#         for posicion in posiciones
+#     }
+
+# Ctrl + K, luego Ctrl + C
+# Para quitar los comentarios: Ctrl + K, luego Ctrl + U
