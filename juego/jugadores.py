@@ -1,4 +1,4 @@
-from typing import List, Dict, Tuple
+from typing import Dict
 import random
 
 from juego.tablero import POSICION_FIN

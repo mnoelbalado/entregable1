@@ -1,6 +1,6 @@
-from typing import List, Dict, Any, Callable
+from typing import List, Dict, Callable
 from functools import reduce
-from juego.jugadores import *
+from juego.jugadores import mover_jugador
 
 
 # --------------------------------------------------
@@ -51,7 +51,7 @@ def reducir_estado_juego(
 
 
 # --------------------------------------------------
-# Generador de eventos
+# Composicion aplicada
 # --------------------------------------------------
 
 def obtener_posicion(jugador: Dict) -> int:
