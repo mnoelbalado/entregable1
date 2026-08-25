@@ -72,17 +72,6 @@ def obtener_casilla(
     )
 
 
-def es_casilla_valida(
-    posicion: int,
-    max_posicion: int = POSICION_FIN
-) -> bool:
-    """
-    Verifica si una posición pertenece al tablero.
-    Función pura.
-    """
-    return 0 <= posicion <= max_posicion
-
-
 def esta_en_fin(
     posicion: int,
     max_posicion: int = POSICION_FIN
@@ -92,19 +81,6 @@ def esta_en_fin(
     Función pura.
     """
     return posicion >= max_posicion
-
-
-def obtener_tipo_casilla(
-    tablero: List[Dict],
-    posicion: int
-) -> str:
-    """
-    Obtiene el tipo de una casilla.
-    Función pura.
-    """
-    casilla = obtener_casilla(tablero, posicion)
-
-    return casilla["tipo"] if casilla else "NORMAL"
 
 
 def obtener_efecto_casilla(
@@ -118,41 +94,3 @@ def obtener_efecto_casilla(
     casilla = obtener_casilla(tablero, posicion)
 
     return casilla["efecto"] if casilla else None
-
-
-def obtener_casillas_especiales(
-    tablero: List[Dict]
-) -> List[Dict]:
-    """
-    Obtiene premios y castigos mediante
-    comprensión de listas.
-    Función pura.
-    """
-    return [
-        casilla
-        for casilla in tablero
-        if casilla["tipo"] in ["PREMIO", "CASTIGO"]
-    ]
-
-
-def obtener_posiciones_ocupadas(
-    jugadores: List[Dict]
-) -> Dict[int, List[str]]:
-    """
-    Devuelve las posiciones ocupadas y los
-    jugadores que se encuentran en cada una.
-    Función pura.
-    """
-    posiciones = {
-        jugador["posicion"]
-        for jugador in jugadores
-    }
-
-    return {
-        posicion: [
-            jugador["nombre"]
-            for jugador in jugadores
-            if jugador["posicion"] == posicion
-        ]
-        for posicion in posiciones
-    }
