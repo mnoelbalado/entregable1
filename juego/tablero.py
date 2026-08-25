@@ -1,7 +1,3 @@
-"""
-Módulo para la gestión del tablero.
-"""
-
 from typing import List, Dict, Optional
 
 

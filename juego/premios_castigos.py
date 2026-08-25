@@ -1,6 +1,3 @@
-"""
-Módulo para manejar premios y castigos.
-"""
 from typing import Dict
 from juego.jugadores import (
     mover_jugador,

@@ -1,7 +1,3 @@
-"""
-Módulo para el registro de eventos del juego mediante decoradores.
-"""
-
 from functools import wraps
 from datetime import datetime
 from typing import Callable

@@ -1,7 +1,3 @@
-"""
-Módulo para las reglas del juego.
-"""
-
 from typing import List, Dict
 
 from juego.jugadores import retroceder_jugador

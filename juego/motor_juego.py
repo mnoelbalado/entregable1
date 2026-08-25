@@ -1,33 +1,8 @@
-"""
-Módulo principal para controlar el flujo del juego.
-"""
-
 from typing import List, Dict, Optional, Generator
-
-from juego.jugadores import (
-    tirar_dado,
-    mover_jugador,
-    consumir_turno_perdido,
-    debe_perder_turno
-)
-
-from juego.tablero import (
-    obtener_efecto_casilla,
-    esta_en_fin
-)
-
-from juego.premios_castigos import (
-    aplicar_efecto,
-    aplicar_p1
-)
-
-from juego.reglas import (
-    actualizar_jugador,
-    verificar_competencia,
-    obtener_rival,
-    resolver_competencia
-)
-
+from juego.jugadores import (tirar_dado, mover_jugador, consumir_turno_perdido, debe_perder_turno)
+from juego.tablero import (obtener_efecto_casilla, esta_en_fin)
+from juego.premios_castigos import (aplicar_efecto, aplicar_p1)
+from juego.reglas import (actualizar_jugador, verificar_competencia, obtener_rival, resolver_competencia)
 from juego.logger import registrar_log
 
 
@@ -42,7 +17,6 @@ def generar_turnos(
     Genera indefinidamente los índices de los jugadores.
     Utiliza yield.
     """
-
     indice = 0
 
     while True:
@@ -62,7 +36,6 @@ def obtener_jugador_por_color(
     Busca un jugador según su color.
     Función pura.
     """
-
     return next(
         (
             jugador
@@ -85,7 +58,6 @@ def resolver_p1(
     Aplica P1 al jugador del color seleccionado.
     Función pura.
     """
-
     jugador_objetivo = obtener_jugador_por_color(
         jugadores,
         color_objetivo
@@ -285,7 +257,7 @@ def procesar_efecto(
             "efectos_encadenados": []
         }
 
-    # Como el efecto movió al jugador, se verifica
+    # Como el efecto movio al jugador, se verifica
     # recursivamente la nueva casilla.
     resultado_encadenado = procesar_efecto(
         jugadores_actualizados,
@@ -398,7 +370,7 @@ def ejecutar_turno(
     )
 
     # ----------------------------------------------
-    # ¿Llegó a FIN?
+    # Llego a FIN?
     # ----------------------------------------------
 
     if esta_en_fin(
@@ -450,7 +422,7 @@ def ejecutar_turno(
     )
 
     # ----------------------------------------------
-    # ¿Llegó a FIN por premio?
+    # Llego a FIN por premio?
     # ----------------------------------------------
 
     if esta_en_fin(
